@@ -1,0 +1,201 @@
+<!-- This comment will put IE 6, 7 and 8 in quirks mode -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Language" content="en" />
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javaScript" src="search/search.js"></script>
+    <link rel="stylesheet" href="doxygen.css"/>
+    <title>TreeView</title>
+    <script type="text/javascript">
+    <!-- // Hide script from old browsers
+    
+    function toggleFolder(id, imageNode) 
+    {
+      var folder = document.getElementById(id);
+      var l = imageNode.src.length;
+      if (imageNode.src.substring(l-20,l)=="ftv2folderclosed.png" || 
+          imageNode.src.substring(l-18,l)=="ftv2folderopen.png")
+      {
+        imageNode = imageNode.previousSibling;
+        l = imageNode.src.length;
+      }
+      if (folder == null) 
+      {
+      } 
+      else if (folder.style.display == "block") 
+      {
+        if (imageNode != null) 
+        {
+          imageNode.nextSibling.src = "ftv2folderclosed.png";
+          if (imageNode.src.substring(l-13,l) == "ftv2mnode.png")
+          {
+            imageNode.src = "ftv2pnode.png";
+          }
+          else if (imageNode.src.substring(l-17,l) == "ftv2mlastnode.png")
+          {
+            imageNode.src = "ftv2plastnode.png";
+          }
+        }
+        folder.style.display = "none";
+      } 
+      else 
+      {
+        if (imageNode != null) 
+        {
+          imageNode.nextSibling.src = "ftv2folderopen.png";
+          if (imageNode.src.substring(l-13,l) == "ftv2pnode.png")
+          {
+            imageNode.src = "ftv2mnode.png";
+          }
+          else if (imageNode.src.substring(l-17,l) == "ftv2plastnode.png")
+          {
+            imageNode.src = "ftv2mlastnode.png";
+          }
+        }
+        folder.style.display = "block";
+      }
+    }
+
+    // End script hiding -->        
+    </script>
+  </head>
+
+  <body class="ftvtree" onload='searchBox.OnSelectItem(0);'>
+      <script type="text/javascript"><!--
+      var searchBox = new SearchBox("searchBox", "search", true, 'Search');
+      --></script>
+      <div id="MSearchBox" class="MSearchBoxInactive">
+      <div class="MSearchBoxRow"><span class="MSearchBoxLeft">
+      <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+      <input type="text" id="MSearchField" value="Search" accesskey="S"
+           onfocus="searchBox.OnSearchFieldFocus(true)" 
+           onblur="searchBox.OnSearchFieldFocus(false)" 
+           onkeyup="searchBox.OnSearchFieldChange(event)"/>
+      </span><span class="MSearchBoxRight">
+      <img id="MSearchSelect" src="search/search.png"
+           onmouseover="return searchBox.OnSearchSelectShow()"
+           onmouseout="return searchBox.OnSearchSelectHide()"
+           alt=""/>
+      </span></div><div class="MSearchBoxSpacer">&nbsp;</div>
+      </div>
+<!--- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&nbsp;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&nbsp;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&nbsp;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&nbsp;</span>Defines</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+    <div class="directory">
+      <h3 class="swap"><span>ECRobot C++ API for LEGO MINDSTORMS NXT</span></h3>
+      <div style="display: block;">
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder1', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder1', this)"/><a class="el" href="annotated.html" target="basefrm">Class List</a></p>
+        <div id="folder1">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_accel_sensor.html" target="basefrm">ecrobot::AccelSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_bluetooth.html" target="basefrm">ecrobot::Bluetooth</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_b_t_connection.html" target="basefrm">ecrobot::BTConnection</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_camera.html" target="basefrm">ecrobot::Camera</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_clock.html" target="basefrm">ecrobot::Clock</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_color_sensor.html" target="basefrm">ecrobot::ColorSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_compass_sensor.html" target="basefrm">ecrobot::CompassSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_daq.html" target="basefrm">ecrobot::Daq</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_game_pad.html" target="basefrm">ecrobot::GamePad</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_gyro_sensor.html" target="basefrm">ecrobot::GyroSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_i2c.html" target="basefrm">ecrobot::I2c</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_ir_seeker.html" target="basefrm">ecrobot::IrSeeker</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_lcd.html" target="basefrm">ecrobot::Lcd</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_lego_light.html" target="basefrm">ecrobot::LegoLight</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_light_sensor.html" target="basefrm">ecrobot::LightSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_motor.html" target="basefrm">ecrobot::Motor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_nxt.html" target="basefrm">ecrobot::Nxt</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_p_s_p_nx.html" target="basefrm">ecrobot::PSPNx</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_rcx_light_sensor.html" target="basefrm">ecrobot::RcxLightSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structecrobot_1_1_camera_1_1_rectangle___t.html" target="basefrm">ecrobot::Camera::Rectangle_T</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_sensor.html" target="basefrm">ecrobot::Sensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_sonar_sensor.html" target="basefrm">ecrobot::SonarSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_sound_sensor.html" target="basefrm">ecrobot::SoundSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_speaker.html" target="basefrm">ecrobot::Speaker</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_touch_sensor.html" target="basefrm">ecrobot::TouchSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_usb.html" target="basefrm">ecrobot::Usb</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structecrobot_1_1_vector_t.html" target="basefrm">ecrobot::VectorT&lt; T &gt;</a></p>
+        </div>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder2', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder2', this)"/><a class="el" href="hierarchy.html" target="basefrm">Class Hierarchy</a></p>
+        <div id="folder2">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_accel_sensor.html" target="basefrm">ecrobot::AccelSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_bluetooth.html" target="basefrm">ecrobot::Bluetooth</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_b_t_connection.html" target="basefrm">ecrobot::BTConnection</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_camera.html" target="basefrm">ecrobot::Camera</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_clock.html" target="basefrm">ecrobot::Clock</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_color_sensor.html" target="basefrm">ecrobot::ColorSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_compass_sensor.html" target="basefrm">ecrobot::CompassSensor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_daq.html" target="basefrm">ecrobot::Daq</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_game_pad.html" target="basefrm">ecrobot::GamePad</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder3', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder3', this)"/><a class="el" href="classecrobot_1_1_i2c.html" target="basefrm">ecrobot::I2c</a></p>
+          <div id="folder3">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_sonar_sensor.html" target="basefrm">ecrobot::SonarSensor</a></p>
+          </div>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_ir_seeker.html" target="basefrm">ecrobot::IrSeeker</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_lcd.html" target="basefrm">ecrobot::Lcd</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_lego_light.html" target="basefrm">ecrobot::LegoLight</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_motor.html" target="basefrm">ecrobot::Motor</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_nxt.html" target="basefrm">ecrobot::Nxt</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_p_s_p_nx.html" target="basefrm">ecrobot::PSPNx</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structecrobot_1_1_camera_1_1_rectangle___t.html" target="basefrm">ecrobot::Camera::Rectangle_T</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder4', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder4', this)"/><a class="el" href="classecrobot_1_1_sensor.html" target="basefrm">ecrobot::Sensor</a></p>
+          <div id="folder4">
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_gyro_sensor.html" target="basefrm">ecrobot::GyroSensor</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_light_sensor.html" target="basefrm">ecrobot::LightSensor</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_rcx_light_sensor.html" target="basefrm">ecrobot::RcxLightSensor</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_sound_sensor.html" target="basefrm">ecrobot::SoundSensor</a></p>
+            <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_touch_sensor.html" target="basefrm">ecrobot::TouchSensor</a></p>
+          </div>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_speaker.html" target="basefrm">ecrobot::Speaker</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="classecrobot_1_1_usb.html" target="basefrm">ecrobot::Usb</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="structecrobot_1_1_vector_t.html" target="basefrm">ecrobot::VectorT&lt; T &gt;</a></p>
+        </div>
+        <p><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="functions.html" target="basefrm">Class Members</a></p>
+        <p><img src="ftv2pnode.png" alt="o" width="16" height="22" onclick="toggleFolder('folder5', this)"/><img src="ftv2folderclosed.png" alt="+" width="24" height="22" onclick="toggleFolder('folder5', this)"/><a class="el" href="files.html" target="basefrm">File List</a></p>
+        <div id="folder5">
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/AccelSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Bluetooth.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Camera.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Clock.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/ColorSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/CompassSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/GyroSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/I2c.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/IrSeeker.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Lcd.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/LegoLight.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/LightSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Motor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Nxt.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="_port_8h.html" target="basefrm">device/Port.h</a></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/PSPNx.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/RcxLightSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Sensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/SonarSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/SoundSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Speaker.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/TouchSensor.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>device/Usb.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>util/BTConnection.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>util/Daq.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2node.png" alt="o" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>util/GamePad.h</b></p>
+          <p><img src="ftv2vertline.png" alt="|" width="16" height="22" /><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><b>util/Vector.h</b></p>
+        </div>
+        <p><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><img src="ftv2doc.png" alt="*" width="24" height="22" /><a class="el" href="globals.html" target="basefrm">File Members</a></p>
+      </div>
+    </div>
+  </body>
+</html>
+
