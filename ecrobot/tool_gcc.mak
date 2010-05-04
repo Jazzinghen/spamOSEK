@@ -6,7 +6,7 @@
 
 # specify GNU-ARM root directory
 ifndef GNUARM_ROOT
-GNUARM_ROOT = /cygdrive/C/cygwin/GNUARM
+GNUARM_ROOT = /home/jazzinghen/Tools/GNUarm/gnuarm
 endif
 
 # specify NeXTTool root directory
