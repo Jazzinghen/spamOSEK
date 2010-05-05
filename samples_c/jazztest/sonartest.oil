@@ -36,13 +36,13 @@ CPU ATMEL_AT91SAM7S256 {
   };
   
   /* Degrees Per Second Counter Task Definition */
-  TASK DegPSCounter {
+  /*TASK DegPSCounter {
     AUTOSTART = FALSE;
-    PRIORITY = 3; /* Smaller value means lower priority */ 
+    PRIORITY = 3; // Smaller value means lower priority 
     ACTIVATION = 1;
     SCHEDULE = FULL;
-    STACKSIZE = 512; /* Stack size */ 
-  };
+    STACKSIZE = 512; // Stack size
+  };*/
   
   /* Definiton of Feedback controller Task */
   /*TASK FeedbackController {
@@ -85,7 +85,7 @@ CPU ATMEL_AT91SAM7S256 {
     };
   };
   
-  /* Definition of DegPS execution timing */
+  /*Definition of DegPS execution timing
   ALARM DegPS_alarm {
     COUNTER = SysTimerCnt;  // What counter should be used
     ACTION = ACTIVATETASK { // What to do every every time the counter hits the quota
@@ -93,9 +93,9 @@ CPU ATMEL_AT91SAM7S256 {
     };
     AUTOSTART = TRUE {
       ALARMTIME = 1;
-      CYCLETIME = 1;
+      CYCLETIME = 5;
       APPMODE = appmode1;
     };
-  };
+  };*/
 };
 

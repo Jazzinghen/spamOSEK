@@ -29,7 +29,6 @@
  * Defining Motor ports. They will hardly change, but it's for compatibility
  */
 
-#define BOTH_MOTORS           NXT_PORT_BC
 #define LEFT_MOTOR            NXT_PORT_C
 #define RIGHT_MOTOR           NXT_PORT_B
 #define SONAR_MOTOR           NXT_PORT_A
@@ -77,6 +76,9 @@ void ecrobot_device_terminate() {
   display_string("Shut Down...");
   
   display_update();
+
+  nxt_motor_set_speed (LEFT_MOTOR, 0, 1);
+  nxt_motor_set_speed (RIGHT_MOTOR, 0, 1);
   
 	ecrobot_term_sonar_sensor(SONAR_PORT);
   ecrobot_set_light_sensor_inactive(LIGHTS_PORT); 
@@ -104,6 +106,7 @@ TASK (Task1) {
 TASK (Task2) {
 
   nxt_motor_set_speed(RIGHT_MOTOR, 50, 1);
+  nxt_motor_set_speed(LEFT_MOTOR, -50, 1);
   
   //ecrobot_status_monitor("Sonar Test");
   display_clear(0);
@@ -125,7 +128,7 @@ TASK (Task2) {
   TerminateTask();
 }
 
-/* TASK (DegPSCounter){
+/*TASK (DegPSCounter){
   if (i >= 1000) {
     i = 0;
   };
