@@ -38,7 +38,7 @@
 DeclareCounter(SysTimerCnt);
 DeclareTask(Task1);
 DeclareTask(Task2);
-DeclareTask(DegPSCounter);
+// DeclareTask(DegPSCounter);
 
 /* Global Declarations */
 
@@ -118,17 +118,17 @@ TASK (Task2) {
   
   display_goto_xy(0, 3);
   display_string("DegPS:");
-  display_unsigned(getdegpscount(), 0);
+//  display_unsigned(getdegpscount(), 0);
   
   display_update();
   
   TerminateTask();
 }
 
-TASK (DegPSCounter){
+/* TASK (DegPSCounter){
   if (i >= 1000) {
     i = 0;
   };
   degpsreadings[i++] = nxt_motor_get_count(RIGHT_MOTOR);
   
-}
+}*/

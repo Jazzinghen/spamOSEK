@@ -286,10 +286,11 @@ $(RXEBIN_TARGET): $(RXE_TARGET)
 	@echo "Generating binary image file: $@"
 	$(OBJCOPY) -O binary $< $@
 
-# on Linux, use wine to run the windows application
-ifneq "$(OS)" "Windows_NT"
-WINECONSOLE := wineconsole
-endif
+# Fixed, I've got NeXTTool to run under Linux in native mode, so this is useless :3
+# # on Linux, use wine to run the windows application
+# ifneq "$(OS)" "Windows_NT"
+# WINECONSOLE := wineconsole
+# endif
 
 .PHONY: toppers_cfg
 toppers_cfg:
@@ -301,7 +302,7 @@ $(TOPPERS_CFG_SOURCE) $(TOPPERS_CFG_HEADER) : $(TOPPERS_JSP_CFG_SOURCE)
 else
 $(TOPPERS_CFG_SOURCE) $(TOPPERS_CFG_HEADER) implementation.oil : $(TOPPERS_OSEK_OIL_SOURCE)
 	@echo "Generating OSEK kernel config files from $(TOPPERS_OSEK_OIL_SOURCE)"
-	$(WINECONSOLE) $(TOPPERS_OSEK_ROOT_SG)/sg/sg $(TOPPERS_OSEK_OIL_SOURCE) \
+	wineconsole $(TOPPERS_OSEK_ROOT_SG)/sg/sg $(TOPPERS_OSEK_OIL_SOURCE) \
 	-os=ECC2 -I$(TOPPERS_OSEK_ROOT_SG)/sg/impl_oil -template=$(TOPPERS_OSEK_ROOT_SG)/sg/lego_nxt.sgt
 endif
 

@@ -11,7 +11,7 @@ endif
 
 # specify NeXTTool root directory
 ifndef NEXTTOOL_ROOT
-NEXTTOOL_ROOT = /cygdrive/C/cygwin/nexttool
+NEXTTOOL_ROOT = /home/jazzinghen/Downloads/NXT\ Dev/bricxcc
 endif
 
 
@@ -35,7 +35,7 @@ OBJCOPY  = $(CROSS)objcopy
 BIOSFLASH = biosflash.exe
 APPFLASH  = appflash.exe
 RAMBOOT   = ramboot.exe
-NEXTTOOL  = NeXTTool.exe
+NEXTTOOL  = NeXTTool
 
 OUTPUT_OPTION = -MD -o $@
 
