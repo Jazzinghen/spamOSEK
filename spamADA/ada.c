@@ -49,35 +49,69 @@ DeclareTask(DPID_Controller);
 
 /* Global Declarations */
 
-U32 last_reading = 0;       // Last grad count reading 
-U32 degpsreadings[10];      // Circular array of 10 - 10ms readings
-U32 average_slot = 0;       // What reading in the circular array we should write into 
-U32 speeds[3];              // Last 3 speed readings
+/* Declaring motor struct */
+typedef struct {
+  U32 last_reading;       // Last grad count reading 
+  U32 now;
+  
+  U32 degpsreadings[10];  // Circular array of 10 - 10ms readings
+  U32 average_slot;       // What reading in the circular array we should write into 
+  U32 speeds[3];          // Last 3 speed readings
 
-U32 motor_power = 0;        // Motors power
-U32 VTEC = 2;               // RPM Value, as in VTEC Just Kicked In, Yo!
+  U32 motor_power;        // Motors power
+  U32 motor_overhead;
+  float VTEC;             // RPM Value, as in VTEC Just Kicked In, Yo!
+} motor_t;
 
-U32 getdegpscount() {
+struct {
+  motor_t right;
+  motor_t left;
+} engines = {
+  {.VTEC = 1},
+  {.VTEC = 1}
+}; 
+
+void motor_data_update (motor_t *mot) {
   U32 degsum = 0;
   
+  mot->now = nxt_motor_get_count(RIGHT_MOTOR);
+  mot->degpsreadings[mot->average_slot] = mot->now - mot->last_reading;
+      
+  mot->average_slot = ((mot->average_slot == 9) ? 0 : mot->average_slot+1);
+  
+  mot->last_reading = mot->now;
+  
   for (int j = 0; j < 10; j++) {
-    degsum += degpsreadings[j];
+    degsum += mot->degpsreadings[j];
   }
   
-  return degsum * 10;
+  degsum *= 10;
+  
+  mot->speeds[2] = mot->speeds[1];
+  mot->speeds[1] = mot->speeds[0];
+  mot->speeds[0] = degsum;
+  
 }
 
-U32 DPID_output (U32 last, U32 target_speed) {
+U32 DPID_output (motor_t *mot ) {
   float Ti = (P / I);
   float TD = (D / P);
   float next;
+  float target_speed = (mot->VTEC) * 360; // Numero di Gradi al secondo.
   
   /* PID Digital Equation FTW */
   
-  next = last + P *
-            ( ( ( 1 + ( DELTA_T / Ti ) + ( TD / DELTA_T ) ) * (target_speed - speeds[0] ) ) -
-            ( ( 1 + 2 * ( TD / DELTA_T ) ) * ( target_speed - speeds[1] ) ) +
-            ( ( TD / DELTA_T ) * ( target_speed - speeds[2] ) ) );
+  next = mot->motor_power + P *
+            ( ( ( 1 + ( ( DELTA_T / Ti ) + mot->motor_overhead ) + ( TD / DELTA_T ) ) * (target_speed - mot->speeds[0] ) ) -
+            ( ( 1 + 2 * ( TD / DELTA_T ) ) * ( target_speed - mot->speeds[1] ) ) +
+            ( ( TD / DELTA_T ) * ( target_speed - mot->speeds[2] ) ) );
+  
+  if ( next > 100 )  {
+    mot->motor_overhead = (U32)(next - 100);
+    next = 100;
+  } else {
+    mot->motor_overhead = 0;wait();M
+  }
   
   return (U32)next;
   
@@ -146,8 +180,12 @@ TASK (LCD_Update) {
   display_unsigned(ecrobot_get_light_sensor(LIGHTS_PORT), 0);
   
   display_goto_xy(0, 3);
-  display_string("DegPS:");
-  display_unsigned(getdegpscount(), 0);
+  display_string("Right DegPS:");
+  display_unsigned(engines.right.speeds[0], 0);
+  
+  display_goto_xy(0, 4);
+  display_string("Left DegPS:");
+  display_unsigned(engines.left.speeds[0], 0);
   
   display_update();
   
@@ -155,24 +193,18 @@ TASK (LCD_Update) {
 }
 
 TASK (DPID_Controller){
-  U32 now;
   
   /* Updating 10ms readings */
-  now = nxt_motor_get_count(RIGHT_MOTOR);
-  degpsreadings[average_slot] = now - last_reading;
-  average_slot = ((average_slot == 9) ? 0 : average_slot+1);
-  last_reading = now;
+  motor_data_update (&engines.right);
+  motor_data_update (&engines.left);
   
-  /* Updating speed readings */
-  speeds[2] = speeds[1];
-  speeds[1] = speeds[0];
-  speeds[0] = getdegpscount();
-  
-  /* Get Next Motors' Power */
-  motor_power = DPID_output ( motor_power, (VTEC * 360) );
+  /* Get Next Motors' Power using PID */
+  engines.right.motor_power = DPID_output ( &engines.right );
+  engines.left.motor_power = DPID_output ( &engines.left );
   
   /* Set Motors' Speed */
-  nxt_motor_set_speed(RIGHT_MOTOR, motor_power , 0);
+  nxt_motor_set_speed(RIGHT_MOTOR, engines.right.motor_power , 0);
+  nxt_motor_set_speed(LEFT_MOTOR, engines.left.motor_power, 0);
   
   TerminateTask();
   

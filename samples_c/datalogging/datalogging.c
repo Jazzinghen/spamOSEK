@@ -11,7 +11,7 @@ DeclareTask(Task1);
 void ecrobot_device_initialize()
 {
 	ecrobot_init_sonar_sensor(NXT_PORT_S2);
-	ecrobot_init_bt_slave("LEJOS-OSEK");
+	ecrobot_init_bt_slave("1234");
 }
 
 void ecrobot_device_terminate()
@@ -35,7 +35,11 @@ void user_1ms_isr_type2(void)
 /* Task1 executed every 50msec */
 TASK(Task1)
 {
-	static S8 i,j;
+
+  U8 buffer[64] = {70, 117, 102, 102, 97};
+
+  bt_send(buffer, 64);
+	/*static S8 i,j;
 	int sonar;
 
 	sonar = ecrobot_get_sonar_sensor(NXT_PORT_S2);
@@ -44,10 +48,10 @@ TASK(Task1)
 	 * NXT GamePad in the host PC accumulates all logging data
 	 * and later you can save the logging data into a CSV file
 	 */
-	ecrobot_bt_data_logger(i++, j--);
+	//ecrobot_bt_data_logger(i++, j--);
 
 	/* display Sensors/Motors/NXT internal status */ 
-	ecrobot_status_monitor("Data Logging");
+	//ecrobot_status_monitor("Data Logging");
 
 	TerminateTask();
 }

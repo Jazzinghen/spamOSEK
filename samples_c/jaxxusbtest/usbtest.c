@@ -84,6 +84,7 @@ void ecrobot_device_initialize()
 
 void ecrobot_device_terminate()
 {
+  ecrobot_disconnect_usb();
 	ecrobot_term_usb(); /* terminate USB */
 }
 
@@ -98,11 +99,7 @@ void user_1ms_isr_type2(void)
 TASK(Task_ts1)
 {
 	GetResource(USB_Rx);
-	display_goto_xy(0, 2);
-	display_string("Updating: ");
-	display_unsigned(ecrobot_process1ms_usb(),0);
-	display_update();	
-	// ecrobot_process1ms_usb(); /* USB process handler (must be invoked every 1msec) */
+	ecrobot_process1ms_usb(); /* USB process handler (must be invoked every 1msec) */
 	ReleaseResource(USB_Rx);
 
 	TerminateTask();
@@ -112,32 +109,12 @@ TASK(Task_ts1)
 TASK(Task_background)
 {
 	int len;
-	U8 data[MAX_USB_DATA_LEN]; /* first byte is preserved for disconnect request from host */
+	U8 data[MAX_USB_DATA_LEN] = {0, 'F', 'u', 'f', 'f', 'a'}; /* first byte is preserved for disconnect request from host */
 
 	showInitScreen();
 
 	while(1)
-  	{
-		memset(data, 0, MAX_USB_DATA_LEN); /* flush buffer */
-		/* critical section */
-		GetResource(USB_Rx);
-		len = ecrobot_read_usb(data, 0, MAX_USB_DATA_LEN); /* read USB data */
-		ReleaseResource(USB_Rx);
-
-  		if (len > 0)
-  		{
-  			if (data[0] == DISCONNECT_REQ)
-  			{
-  				/* disconnect current connection */
-				ecrobot_disconnect_usb();
-				showInitScreen();
-			}
-			else
-			{
-				data[0] = 0x00;
-				ecrobot_send_usb(data, 0, len); /* send back received USB data */
-				display_usb_data(&data[1], len-1);
-			}
-  		}
-	}
+  	{	    
+	    ecrobot_send_usb(data, 0, 6); /* send back received USB data */	  
+	  }
 }
